@@ -1,0 +1,9 @@
+version: "3.1"
+
+services:
+  jboss:
+    image: jboss/wildfly
+    container_name: jboss
+    ports:
+      - 9990:9990
+

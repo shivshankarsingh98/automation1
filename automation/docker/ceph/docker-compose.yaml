@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  ceph:
+    image: ceph/daemon:tag-build-master-kraken-ubuntu-16.04
+    environment:
+      - "CEPH_DAEMON=MON"
+      - "NETWORK_AUTO_DETECT=1"
+    volumes:
+      - type: volume
+        source: etc_ceph
+        target: /etc/ceph
+      - type: volume
+        source: var_lib_ceph
+        target: /var/lib/ceph/
+    network_mode: host
+
+volumes:
+    etc_ceph:
+    var_lib_ceph:
+    dev:
